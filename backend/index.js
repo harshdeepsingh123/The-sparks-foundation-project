@@ -9,8 +9,8 @@ app.use(cors())
 app.use(bodyParser.json())
 
 const razorpay = new Razorpay({
-	key_id: 'rzp_test_uGoq5ABJztRAhk',
-	key_secret: 'FySe2f5fie9hij1a5s6clk9B'
+	key_id: 'rzp_test_7u6VXo1UbLBB9S',
+	key_secret: 'R3AAWKfaceQftLaNh36ai6ul'
 })
 
 app.get('/logo.svg', (req, res) => {
@@ -47,7 +47,7 @@ app.post('/razorpay', async (req, res) => {
 	const currency = 'INR'
 
 	const options = {
-		amount: amount * 100,
+		amount: amount ,
 		currency,
 		receipt: shortid.generate(),
 		payment_capture

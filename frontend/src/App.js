@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import logo from './logo.svg'
+import Button from 'react-bootstrap/Button';
+import logo from './img.jpg'
 import './App.css'
 
 function loadScript(src) {
@@ -19,7 +20,7 @@ function loadScript(src) {
 const __DEV__ = document.domain === 'localhost'
 
 function App() {
-	const [name, setName] = useState('Mehul')
+	const [name, setName] = useState('')
 
 	async function displayRazorpay() {
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
@@ -36,22 +37,21 @@ function App() {
 		console.log(data)
 
 		const options = {
-			key: __DEV__ ? 'rzp_test_uGoq5ABJztRAhk' : 'PRODUCTION_KEY',
+			key: __DEV__ ? 'rzp_test_7u6VXo1UbLBB9S' : 'PRODUCTION_KEY',
 			currency: data.currency,
 			amount: data.amount.toString(),
 			order_id: data.id,
-			name: 'Donation',
-			description: 'Thank you for nothing. Please give us some money',
-			image: 'http://localhost:1337/logo.svg',
+			name: 'Donating to The Sparks Foundation',
+			description: 'Donate via any type of system you',
+			
 			handler: function (response) {
-				alert(response.razorpay_payment_id)
-				alert(response.razorpay_order_id)
-				alert(response.razorpay_signature)
+				alert('Check Your Email for Invoice Details ');
+				
 			},
 			prefill: {
 				name,
-				email: 'sdfdsjfh2@ndsfdf.com',
-				phone_number: '9899999999'
+				email:'',
+				phone_number:'',
 			}
 		}
 		const paymentObject = new window.Razorpay(options)
@@ -61,17 +61,22 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
+				<img src={logo}  alt="logo" />
+				<h1>
+				The Sparks Foundation
+			  </h1>
+			  <h2>
+				Payment gateway integration system
+			  </h2>
+			 
 				<a
-					className="App-link"
+				
 					onClick={displayRazorpay}
 					target="_blank"
 					rel="noopener noreferrer"
+					variant="outline-primary"
 				>
-					Donate $5
+					Donate Now
 				</a>
 			</header>
 		</div>

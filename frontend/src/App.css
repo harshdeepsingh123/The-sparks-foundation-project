@@ -1,12 +1,34 @@
 .App {
   text-align: center;
 }
-
+body{
+  font-family: 'Bungee Inline', cursive;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+a {
+  background-color: blue;
+  color: white;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+a:hover {
+  background-color: #555;
+}
+a:hover {
+  cursor: pointer;
+}
 
+a:active {
+  background-color: black;
+}
+
+a:visited {
+  background-color: #ccc;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -14,7 +36,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgba(70, 66, 66, 0.973);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
